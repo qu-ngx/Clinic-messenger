@@ -20,6 +20,13 @@ export const signup = async (req:Request, res:Response) => {
             return res.status(400).json({ error: "Username already exists"});
         }
 
+        // hashing the password
+        const salt = await bcryptjs.genSalt(13); // Roll the encryption 13 times whoo whoo
+        const hashedPassword = await bcryptjs.hash(password, salt); 
+
+        const boyProfilePic = `https://avatar.iran.liara.run/public/boy?username=${username}`;
+        const girlProfilePic = `https://avatar.iran.liara.run/public/girl?username=${username}`;
+
 
 
     } catch (error) {
