@@ -5,9 +5,9 @@ import generateToken from "../utils/generateToken.js";
 
 export const signup = async (req:Request, res:Response) => {
     try {
-        const { fullName, username, password, confirmPassword, gender } = req.body;
+        const { fullname, username, password, confirmPassword, gender } = req.body;
         
-        if (!fullName || !username || !password || !confirmPassword || !gender) {
+        if (!fullname || !username || !password || !confirmPassword || !gender) {
             return res.status(400).json({error: "Please correct all the fields"});
         }
 
@@ -32,7 +32,7 @@ export const signup = async (req:Request, res:Response) => {
         // Create a new user request with prisma (Pass in the body of )
         const newUser = await prisma.user.create({
             data: {
-                fullName,
+                fullname,
                 username,
                 password: hashedPassword,
                 gender,
@@ -46,7 +46,7 @@ export const signup = async (req:Request, res:Response) => {
 
             res.status(200).json({
                 id: newUser.id,
-                fullName: newUser.fullName,
+                fullname: newUser.fullname,
                 username: newUser.username,
                 profilePic: newUser.profilePic,
             });
