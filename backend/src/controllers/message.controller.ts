@@ -94,3 +94,24 @@ export const getMessages = async (req: Request, res: Response) => {
         res.status(500).json({error: "Internal Server Error"});    
     }
 }
+
+export const getUsersForSidebar = async (req: Request, res: Response) => {
+    try {
+        const authUser = req.user.id;
+        const users = await prisma.user.findMany({
+            where: {
+                id: {
+                    not: authUser,
+                }
+            },
+            select: {
+                id: true, fullname: true, profilePic: true
+            },
+        });
+        
+        res.status(200).json(users);
+    } catch (error:any) {
+        console.error("Error in getting UsersForSidebar: ", error.message);
+        res.status(500).json({error: "Internal server error"});
+    }
+}
