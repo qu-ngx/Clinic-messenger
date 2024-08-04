@@ -7,6 +7,8 @@ import messageRoutes from "./routes/message.route.js";
 import dotenv from "dotenv";
 dotenv.config();
 
+const PORT = process.env.PORT || 9001;
+
 const app = express();
 
 app.use(cookieParser()); // Parsing cookies 
@@ -16,6 +18,6 @@ app.use(express.json()); // Parsing raw body / request into Json
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
     
-app.listen(9000, () => {
-    console.log("Server is running on port 9000");
+app.listen(PORT, () => {
+    console.log("Server is running on port " + PORT);
 });
