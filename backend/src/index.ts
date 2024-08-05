@@ -10,7 +10,6 @@ import { server, app } from "./socket/socket.js";
 dotenv.config();
 
 const PORT = process.env.PORT || 9001;
-const __dirname = path.resolve();
 
 app.use(cookieParser()); // Parsing cookies 
 app.use(express.json()); // Parsing raw body / request into Json
@@ -19,15 +18,20 @@ app.use(express.json()); // Parsing raw body / request into Json
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
+// -- FOR DEPLOYMENT -- 
 // frontend => localhost:5137
 // backend => localhost:9000
 // all => localhost:9000
+
+const __dirname = path.resolve();
 if (process.env.NODE_ENV !== "development") {
     app.use(express.static(path.join(__dirname, "/frontend/dist")));
     app.get("*", (req, res) => {
         res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
     });
 }
+
+// ------------
     
 server.listen(PORT, () => {
     console.log("Server is running on port " + PORT);
