@@ -3,8 +3,7 @@ import express from "express";
 
 const router = express.Router();
 
-import {login, logout, signup} from "../controllers/auth.controller.js"
-import {getMe} from "../controllers/auth.controller.js";
+import {login, logout, signup, getMe} from "../controllers/auth.controller.js"
 import protectRoute from "../middleware/protectRoute.js"
 
 // localhost:9000/api/auth/... (The ... are like below routes)

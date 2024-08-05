@@ -1,12 +1,12 @@
 import useChatScroll from "../../hooks/useChatScroll";
 import useGetMessages from "../../hooks/useGetMessages";
-// import useListenMessages from "../../hooks/useListenMessages";
+import useListenMessages from "../../hooks/useListenMessages";
 import MessageSkeleton from "../skeletons/MessageSkeleton";
 import Message from "./Message";
 
 const Messages = () => {
 	const { loading, messages } = useGetMessages();
-	// useListenMessages();
+	useListenMessages();
 
 	const ref = useChatScroll(messages) as React.MutableRefObject<HTMLDivElement>;
 

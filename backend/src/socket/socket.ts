@@ -10,8 +10,11 @@ const io = new Server(server, {
         origin: ["http://localhost:5173"],
         methods: ["GET", "POST"],
     },
-
 });
+
+export const getReceiverSocketId = (receiverId: string) => {
+    return userSocketMap[receiverId];
+}
 
 // Object to map userId to socketId
 const userSocketMap: {[key: string]: string} = {}; // {userId: socketId}
@@ -34,3 +37,5 @@ io.on("connection", (socket) => {
        io.emit("getOnlineUsers", Object.keys(userSocketMap)); 
     });
 });
+
+export { app, io, server };

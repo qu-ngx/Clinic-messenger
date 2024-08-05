@@ -3,7 +3,7 @@ import { useAuthContext } from "../context/AuthContext";
 import toast from "react-hot-toast";
 
 type SignupInputs = {
-	fullName: string;
+	fullname: string;
 	username: string;
 	password: string;
 	confirmPassword: string;
