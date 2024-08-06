@@ -23,6 +23,8 @@ app.use("/api/messages", messageRoutes);
 // backend => localhost:9000
 // all => localhost:9000
 
+// Changed product in NODE_ENV to development to avoid bugs
+
 const __dirname = path.resolve();
 if (process.env.NODE_ENV === "development") {
     app.use(express.static(path.join(__dirname, "/frontend/dist")));
