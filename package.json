@@ -2,7 +2,7 @@
   "name": "messenger-clone",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index",
   "scripts": {
     "dev": "nodemon --watch backend/src --exec ts-node backend/src/index.ts",
     "build": "npm install && tsc && prisma generate --schema=./backend/prisma/schema.prisma && npm install --prefix frontend && npm run build --prefix frontend",
