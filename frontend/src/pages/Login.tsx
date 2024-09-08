@@ -18,12 +18,7 @@ const Login = () => {
 	return (
 		<div className='flex flex-col items-center justify-center min-w-96 mx-auto'>
 			<div className='w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0'>
-				<h1 className='text-3xl font-semibold text-center text-white'>
-					Sign Up <span className='text-blue-400'>Mes</span>
-					<span className='text-purple-500'>senger</span>
-					<span className='text-pink-400'>Clone</span>
-				</h1>
-
+				<h1 className='text-3xl font-semibold text-center text-white'> Sign In </h1>
 				<form onSubmit={handleSubmitForm}>
 					<div>
 						<label className='label p-2 '>
